@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Solar_Plant__c</fullName>
+    <externalId>false</externalId>
+    <label>Solar Plant</label>
+    <referenceTo>Solar_Plant__c</referenceTo>
+    <relationshipLabel>Installations</relationshipLabel>
+    <relationshipName>Installations</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>
