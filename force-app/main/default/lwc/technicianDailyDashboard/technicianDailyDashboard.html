@@ -1,0 +1,60 @@
+<template>
+    <lightning-card title="Painel Diário do Técnico" icon-name="standard:service_appointment">
+        <div class="slds-p-around_medium">
+            <lightning-input 
+                type="text" 
+                label="Nome do Técnico" 
+                value={technicianName} 
+                onchange={handleNameChange}
+                placeholder="Digite seu nome para ver as instalações..."
+                class="slds-m-bottom_medium">
+            </lightning-input>
+
+            <template if:true={processedInstallations}>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <template for:each={processedInstallations} for:item="inst">
+                        <div key={inst.Id} class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+                            <div class="slds-box slds-box_x-small slds-theme_default">
+                                <div class="slds-grid slds-grid_vertical-align-center">
+                                    <div class="slds-col slds-size_2-of-3">
+                                        <h3 class="slds-text-heading_small">{inst.Solar_Plant__r.Name}</h3>
+                                        <p><strong>Horário:</strong> {inst.Installation_Time__c}</p>
+                                        <p><strong>Endereço:</strong> {inst.Solar_Plant__r.Installation_Address__c}</p>
+                                        <p><strong>Status:</strong> <span class={inst.statusClass}>{inst.Status__c}</span></p>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-3 slds-text-align_right">
+                                        <lightning-button-group>
+                                            <lightning-button 
+                                                label="Iniciar" 
+                                                variant="brand" 
+                                                onclick={handleStatusUpdate} 
+                                                data-id={inst.Id} 
+                                                data-status="Em Andamento"
+                                                disabled={inst.isCompleted}>
+                                            </lightning-button>
+                                            <lightning-button 
+                                                label="Concluir" 
+                                                variant="success" 
+                                                onclick={handleStatusUpdate} 
+                                                data-id={inst.Id} 
+                                                data-status="Concluído"
+                                                disabled={inst.isCompleted}>
+                                            </lightning-button>
+                                        </lightning-button-group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <template if:false={hasInstallations}>
+                    <p class="slds-text-align_center slds-m-top_medium">Nenhuma instalação agendada para hoje.</p>
+                </template>
+            </template>
+
+            <template if:true={error}>
+                <p class="slds-text-color_error">Erro ao carregar instalações: {error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

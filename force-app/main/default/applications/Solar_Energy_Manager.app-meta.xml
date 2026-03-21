@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>Solar_Home</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#FD8A6A</headerColor>
         <logo>Capturar</logo>
@@ -14,6 +22,15 @@
     <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <label>Solar Energy Manager</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Solar_Home</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <tabs>standard-home</tabs>
     <tabs>Solar_Plant__c</tabs>
     <tabs>Installation__c</tabs>
     <tabs>Maintenance_Request__c</tabs>
