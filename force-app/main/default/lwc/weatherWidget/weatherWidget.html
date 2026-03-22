@@ -1,0 +1,40 @@
+<template>
+    <div class="iphone-widget">
+        <!-- Input para buscar cidade -->
+        <div class="input-container">
+            <lightning-input 
+                variant="label-hidden"
+                placeholder="Cidade..."
+                value={city}
+                onchange={handleCityChange}
+                class="custom-input">
+            </lightning-input>
+            <lightning-button-icon 
+                icon-name="utility:search" 
+                variant="bare-inverse" 
+                onclick={handleSearch}>
+            </lightning-button-icon>
+        </div>
+
+        <template if:true={weatherData}>
+            <div class="city-name">{weatherData.name}</div>
+            <div class="temperature">{tempInt}°</div>
+            <div class="description">{weatherDescription}</div>
+
+            <div class="details">
+                <div>
+                    <p>Vento</p>
+                    <strong>{weatherData.wind.speed} m/s</strong>
+                </div>
+                <div>
+                    <p>Umidade</p>
+                    <strong>{weatherData.main.humidity}%</strong>
+                </div>
+            </div>
+        </template>
+
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Carregando" size="small" variant="inverse"></lightning-spinner>
+        </template>
+    </div>
+</template>

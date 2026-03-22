@@ -1,0 +1,52 @@
+.iphone-widget {
+    background: linear-gradient(135deg, #1e90ff 0%, #87cefa 100%);
+    color: white;
+    border-radius: 20px;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0 auto;
+}
+
+.city-name {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.temperature {
+    font-size: 4rem;
+    font-weight: 200;
+    line-height: 1;
+    margin: 15px 0;
+}
+
+.description {
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.details {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.input-container {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+/* Ajuste para o input padrão do Lightning dentro do widget */
+.custom-input {
+    --slds-c-input-color-background: rgba(255, 255, 255, 0.2);
+    --slds-c-input-text-color: white;
+    --slds-c-input-placeholder-color-text: rgba(255, 255, 255, 0.7);
+    --slds-c-input-color-border: transparent;
+}

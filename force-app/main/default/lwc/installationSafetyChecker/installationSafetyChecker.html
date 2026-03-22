@@ -1,0 +1,68 @@
+<template>
+    <lightning-card title="Segurança de Instalação (Clima)" icon-name="standard:service_appointment">
+        <div class="slds-p-around_medium container">
+            <!-- Campo de Busca -->
+            <div class="slds-grid slds-gutters slds-alignment_absolute-center slds-m-bottom_medium">
+                <div class="slds-col slds-size_2-of-3">
+                    <lightning-input 
+                        type="text" 
+                        label="Cidade" 
+                        variant="label-hidden"
+                        placeholder="Digite a cidade da instalação..."
+                        value={city}
+                        onchange={handleCityChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-button 
+                        variant="brand" 
+                        label="Checar" 
+                        onclick={handleSearch}
+                        is-loading={isLoading}
+                        class="slds-size_full">
+                    </lightning-button>
+                </div>
+            </div>
+
+            <!-- Loader -->
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Carregando..." size="medium"></lightning-spinner>
+            </template>
+
+            <!-- Resultados -->
+            <template if:true={weatherData}>
+                <div class={safetyContainerClass}>
+                    <div class="slds-text-align_center slds-m-bottom_small">
+                        <lightning-icon 
+                            icon-name={safetyIcon} 
+                            size="large" 
+                            variant={safetyIconVariant}>
+                        </lightning-icon>
+                        <h2 class="slds-text-heading_medium slds-m-top_x-small">
+                            <strong>{safetyStatusLabel}</strong>
+                        </h2>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="label">Temperatura</span>
+                            <span class="value">{weatherData.main.temp}°C</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Vento</span>
+                            <span class="value">{weatherData.wind.speed} m/s</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Umidade</span>
+                            <span class="value">{weatherData.main.humidity}%</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">Condição</span>
+                            <span class="value slds-text-title_caps">{weatherDescription}</span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

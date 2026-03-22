@@ -20,8 +20,16 @@
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Installation_Address__c</field>
+                <behavior>Edit</behavior>
+                <field>Street__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>City__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

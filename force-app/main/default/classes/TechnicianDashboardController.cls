@@ -9,7 +9,7 @@ public with sharing class TechnicianDashboardController {
         // Removido o filtro de TODAY temporariamente para garantir que apareça algo se houver dados
         return [
             SELECT Id, Name, Installation_Date__c, Installation_Time__c, Status__c, 
-                   Solar_Plant__r.Name, Solar_Plant__r.Installation_Address__c
+                   Solar_Plant__r.Name, Solar_Plant__r.Street__c, Solar_Plant__r.Number__c, Solar_Plant__r.City__c
             FROM Installation__c
             WHERE Technician__c = :technicianName
             ORDER BY Installation_Time__c ASC
